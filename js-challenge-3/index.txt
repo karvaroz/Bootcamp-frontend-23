@@ -1,0 +1,12 @@
+Diferencias entre var y let 
+
+- Ambas son declaraciones de variables en JS
+- Una diferencia es la diferencia entre 
+ellos es que var tiene un alcance de función y let tiene un alcance de bloque
+- La variable declarada por let no se puede volver a declarar 
+y debe declararse antes de su uso, mientras que las variables declaradas con la palabra clave var se elevan
+- Las declaraciones var tienen un ámbito global o un ámbito de función/local
+- cualquier variable que se declare con var fuera de una función está disponible para su uso en toda la pantalla.
+- var tiene un ámbito local cuando se declara dentro de una función. Esto significa que está disponible y solo se puede acceder a ella dentro de esa función.
+- Así que una variable declarada en un bloque con let  solo está disponible para su uso dentro de ese bloque
+- Al igual que var,  una variable declarada con let puede ser actualizada dentro de su ámbito. A diferencia de var, una variable let no puede ser re-declarada dentro de su ámbito.

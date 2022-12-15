@@ -15,7 +15,7 @@ let keys = Object.keys(occurs);
 let values = Object.values(occurs)
 let min = Math.min(...values)
 let leastFreq = values.findIndex((x) => { return x == min })
-console.log("Menor frecuencias: ", min)
+console.log(occurs);
 
 
 
@@ -33,11 +33,11 @@ console.log(`Array sin duplicados ${arr3Result}`);
 
 // Write a JS program to concat arrays.
 
-let data = [
+const data = [
 	["The", "little", "horse"],
 	["Plane", "over", "the", "ocean"],
 	["Chocolate", "ice", "cream", "is", "awesome"],
 	["this", "is", "a", "long", "sentence"],
 ];
-let result = data.map((item) => item.reduce((acc, item) => `${acc} ${item}`));
+const result = data.map((item) => item.reduce((acc, item) => `${acc} ${item}`));
 console.log(result);
