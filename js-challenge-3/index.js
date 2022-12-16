@@ -2,7 +2,7 @@ let promise = new Promise(function (resolve, reject) {
 	resolve(1);
 });
 
-// promise.then(alert)
+promise.then(alert)
 
 function delay(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));

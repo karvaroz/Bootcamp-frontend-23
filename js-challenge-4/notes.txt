@@ -1,0 +1,8 @@
+Promise API
+- All
+- Race -- Primer error
+- Any - Primer success 
+
+Async / Await
+- Esperar al resultado a las promesas
+- Una funcion async retorna una promesa
