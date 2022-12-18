@@ -6,3 +6,18 @@ Promise API
 Async / Await
 - Esperar al resultado a las promesas
 - Una funcion async retorna una promesa
+
+Event Loop
+- JS espera por las tareas, las ejecuta y luego espera por mas tareas
+- Un ciclo sin fin que siempre se va a estar ejecutando
+
+Elementos que lo componen
+- Call Stack: mecanimos que interpreta todas las tareas
+Traquea todas estas llamadas a las tareas
+- Task Queue/Macro Task: Almacenar diferentes tipos de tareas
+eventos de parte de la UI
+- Microtask Queue: Cola donde entran las promesas
+
+http://latentflip.com/loupe/    
+https://www.jsv9000.app/ 
+Lunes: Explicar un evento de event loop
