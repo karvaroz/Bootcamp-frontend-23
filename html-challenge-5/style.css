@@ -1,0 +1,100 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.cards_container {
+	margin: 10px;
+}
+
+.card_container {
+	border: 6px solid gray;
+	width: 280px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(219, 170, 109);
+}
+
+.card_title {
+	border: 1px solid gray;
+	width: 90%;
+	margin: 10px;
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 600;
+}
+
+.card_starts {
+	width: 90%;
+	/* border: 1px solid gray; */
+	margin-top: 0;
+	padding: 2px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.card_img {
+	/* width: 80%; */
+	border: 5px solid gray;
+	margin-top: 5px;
+}
+
+.card_img_msg {
+	width: 80%;
+	font-size: smaller;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.card_content {
+	margin: 5px;
+	/* width: 95%; */
+	border: 3px solid rgb(145, 86, 86);
+	height: 100px;
+}
+
+.card_content p:nth-child(1) {
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.card_content p:nth-child(2) {
+	font-size: 12px;
+}
+
+.card_content_last {
+	margin-top: 30px;
+	font-size: 12px;
+	border-top: 1px solid black;
+	display: flex;
+	font-weight: 600;
+	justify-content: flex-end;
+}
+
+.card_footer {
+	display: flex;
+	justify-content: space-between;
+	font-size: 11px;
+	width: 95%;
+}
+
+.card_footer p span:nth-child(2) {
+	font-weight: 600;
+}

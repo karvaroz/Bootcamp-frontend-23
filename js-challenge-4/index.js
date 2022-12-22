@@ -17,12 +17,11 @@ async function loadJson(url) {
 
 function demoGithubUser() {
 	let name = prompt("Enter a name?", "vanimar");
-	// let name = prompt("Enter a name?");
 
 	return loadJson(`https://api.github.com/users/${name}`)
-		.then((user) => {
+		.then(async (user) => {
 			alert(`Full name: ${user.name}.`);
-			return user;
+			return await user;
 		})
 		.catch((err) => {
 			if (err instanceof HttpError && err.response.status == 404) {
@@ -35,3 +34,6 @@ function demoGithubUser() {
 }
 
 demoGithubUser();
+
+
+

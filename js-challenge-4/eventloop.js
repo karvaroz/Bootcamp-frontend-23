@@ -1,16 +1,16 @@
-function sumABC(b) {
-    const a = 10
-    return a + b + 11
-}
+// function sumABC(b) {
+//     const a = 10
+//     return a + b + 11
+// }
 
-function multiplyXY(x) {
-    const y = 3
-    return sumABC(x*y)
-}
+// function multiplyXY(x) {
+//     const y = 3
+//     return sumABC(x*y)
+// }
 
-const assign = multiplyXY(7)
+// const assign = multiplyXY(7)
 
-console.log(assign)
+// console.log(assign)
 
 
 // EVENT LOOP
@@ -27,3 +27,31 @@ console.log(assign)
 // (dejando solo el marco de llamada de multiplyXY).
 // 4. Cuando la barra regresa, la pila está vacía.
 
+
+function addToQueue() {
+    queueMicrotask(() => {
+        console.log("Microtask 1");
+        queueMicrotask(() => {
+            console.log("Microtask 2");
+        });
+    });
+}
+
+function intervalCallback() {
+    count++
+    console.log("clearing the interval after ", count, " seconds");
+    addToQueue();
+    Promise.resolve().then(promiseCallBack)
+}
+
+function promiseCallBack() {
+    console.log("Hello from Promise");
+}
+
+
+let count = 0;
+setTimeout(intervalCallback, 1000);
+
+Promise.resolve().then(promiseCallBack);
+
+setTimeout(intervalCallback, 1000);
