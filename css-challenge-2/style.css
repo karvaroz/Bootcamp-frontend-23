@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 
-body {
+.cards_container {
 	display: grid;
 	grid-template-columns: 20% 60% 20%;
 }
@@ -25,6 +25,21 @@ span {
 	display: grid;
 	height: 90px;
 	background-color: rgb(97, 76, 116);
+}
+
+.header{
+		background-color: rgb(97, 76, 116);
+	width: 100vw;
+	min-height: 5vh;
+	margin-bottom: 5%;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	background-color: rgb(97, 76, 116);
+	width: 100vw;
+	min-height: 5vh;
 }
 
 .group_cards {
@@ -60,4 +75,68 @@ span {
 	gap: 5px;
 	border: 2px solid black;
 	padding: 2px;
+}
+
+
+
+/* CARD CONTENT */
+
+.card_title {
+	border: 1px solid gray;
+	margin: 10px;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 600;
+}
+
+.card_starts {
+	width: 90%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.card_img {
+	width: 200px;
+	border: 5px solid gray;
+}
+
+.card_img_msg {
+	width: 80%;
+	font-size: smaller;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.card_content {
+	margin: 5px;
+	border: 3px solid rgb(145, 86, 86);
+	height: 100px;
+}
+
+.card_content p:nth-child(1) {
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.card_content p:nth-child(2) {
+	font-size: 12px;
+}
+
+.card_content_last {
+	font-size: 12px;
+	border-top: 1px solid black;
+	display: flex;
+	font-weight: 600;
+	justify-content: flex-end;
+}
+
+.card_footer {
+	display: flex;
+	justify-content: space-between;
+	font-size: 11px;
+	width: 95%;
+}
+
+.card_footer p span:nth-child(2) {
+	font-weight: 600;
 }
