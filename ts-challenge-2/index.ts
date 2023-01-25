@@ -1,14 +1,27 @@
-function checkPowerPoint(value: number) {
-	return function (
-		target: any,
-		propertyKey: string,
-		descriptor: PropertyDescriptor
-	) {
-		if (value < 0) {
-			return console.log("The pokemon does not have power points left!", value);
+function checkPowerPoint(
+	target: any,
+	propertyKey: string,
+	descriptor: PropertyDescriptor
+) {
+	const method = descriptor.value;
+	descriptor.value = function (move: Imove) {
+		if (move.power == 0) {
+			console.log(
+				` The Pokemon does not have any Power Points:${move?.power} to use ${move?.name}!`
+			);
+		} else {
+			console.log(
+				` The Pokemon has ${move?.power} Power Points to use ${move?.name}!`
+			);
 		}
-		return console.log(`The pokwemon has ${value} left to play!`);
+
+		method.apply(this, [move]);
 	};
+}
+
+interface Imove {
+	name: string;
+	power: number;
 }
 
 class Pokemon {
@@ -21,18 +34,15 @@ class Pokemon {
 	}
 
 	@checkPowerPoint
-	figth(move: any) {
-		//console.log(`${this.name} used ${move?.name}!`);
+	figth(move: Imove) {
+		console.log(`${this.name} used ${move?.name}!`);
 		this.ppAvailable -= 1;
-		//console.log(this.ppAvailable)
 	}
 }
 
 const move = { name: "thunderbolt", power: 90 };
 const pikachu = new Pokemon("pikachu", 1);
-console.log(pikachu);
-//pikachu.figth(move);
 pikachu.figth(move);
-
+pikachu.figth(move);
 
 // tsc --target ES5 --experimentalDecorators ./pokemon.ts
