@@ -19,8 +19,7 @@ function checkPowerPoint(
 	};
 }
 
-function getPokemonIds(target: Function) {
-	console.log(target);
+function getPokemonIds(constructor: Function): any {
 	let numbersOfPokemons: number = 5;
 	let pokemonsId: number[] = [];
 	while (pokemonsId.length < numbersOfPokemons) {
@@ -29,7 +28,7 @@ function getPokemonIds(target: Function) {
 			pokemonsId.push(id);
 		}
 	}
-	return pokemonsId;
+	return console.log(pokemonsId);
 }
 
 interface Imove {
@@ -65,17 +64,18 @@ class Trainer {
 		this.pokemonsId = pokemonsId;
 	}
 
-	fetchApi(pokemonsId: number[]) {
-		const requestPokemonsId = pokemonsId.map((pokeId) => {
-			return pokeId;
-		});
+	fetchApi() {
+		let requests = this.pokemonsId.map((pokeId) =>
+			fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+		);
+
+		Promise.all(requests)
+			.then((responses) => Promise.all(responses.map((res) => res.json())))
+			.then((pokemons) =>
+				pokemons.forEach((pokemon) => console.log(pokemon.name))
+			);
 	}
 }
 
-// const move = { name: "thunderbolt", power: 90 };
-// const pikachu = new Pokemon("pikachu", 1);
-// pikachu.figth(move);
-// pikachu.figth(move);
-
-const trainer = new Trainer(1, "Pepe", []);
-// trainer.generateRandomIds(5)
+const trainer = new Trainer(1, "Pepe", [88, 30, 57, 24, 44]);
+trainer.fetchApi();
