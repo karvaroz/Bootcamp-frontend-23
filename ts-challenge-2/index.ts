@@ -46,3 +46,9 @@ pikachu.figth(move);
 pikachu.figth(move);
 
 // tsc --target ES5 --experimentalDecorators ./pokemon.ts
+// tsc ./src/app.ts --target ES5 --experimentalDecorators --emitDecoratorMetadata --lib \"es2016, dom\" && node ./src/app.js
+
+// Tarea
+// Crear decorador getPokemonsId - tipo clase
+// Generar ids randoms de 5 - 10 
+// Con esos ids hacer la consulta al api - promesas
