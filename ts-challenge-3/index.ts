@@ -20,16 +20,18 @@ function checkPowerPoint(
 }
 
 function getPokemonIds(constructor: Function): any {
-	let numbersOfPokemons: number = 5;
-	let pokemonsId: number[] = [];
+	let numbersOfPokemons: number = 5
+	let pokemonsId: number[] = []
 	while (pokemonsId.length < numbersOfPokemons) {
-		const id = Math.floor(Math.random() * 100) + 1;
+		const id = Math.floor(Math.random() * 100) + 1
 		if (pokemonsId.indexOf(id) === -1) {
-			pokemonsId.push(id);
+			pokemonsId.push(id)
 		}
 	}
-	return console.log(pokemonsId);
+	return console.log(constructor.prototype.pokemonsId = pokemonsId)
 }
+
+
 
 interface Imove {
 	name: string;
@@ -56,26 +58,25 @@ class Pokemon {
 class Trainer {
 	id: number;
 	name: string;
-	pokemonsId: number[];
+	pokemonsId!: number[];
 
-	constructor(id: number, name: string, pokemonsId: number[]) {
+	constructor(id: number, name: string, pokemonsId?: number[]) {
 		this.id = id;
 		this.name = name;
-		this.pokemonsId = pokemonsId;
+		if (pokemonsId) this.pokemonsId = pokemonsId
 	}
 
 	fetchApi() {
-		let requests = this.pokemonsId.map((pokeId) =>
-			fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
-		);
+		let requests = this.pokemonsId.map(
+			pokeId => fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+		)
 
 		Promise.all(requests)
-			.then((responses) => Promise.all(responses.map((res) => res.json())))
-			.then((pokemons) =>
-				pokemons.forEach((pokemon) => console.log(pokemon.name))
-			);
+			.then(responses => Promise.all(responses.map(res => res.json())))
+			.then(pokemons => pokemons.forEach(pokemon => console.log(pokemon.name)));
 	}
+
 }
 
-const trainer = new Trainer(1, "Pepe", [88, 30, 57, 24, 44]);
+const trainer = new Trainer(1, "Pepe");
 trainer.fetchApi();
