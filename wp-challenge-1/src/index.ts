@@ -1,4 +1,1 @@
-const test = () => {
-	console.log("test");
-};
-test();
+console.log("Hello World!");
