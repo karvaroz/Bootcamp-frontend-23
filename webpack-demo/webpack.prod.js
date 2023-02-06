@@ -9,6 +9,6 @@ module.exports = merge(common, {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'prod.js'
-    },
+        filename: '[name][hash].js'
+    }
 });
