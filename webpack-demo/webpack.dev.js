@@ -1,14 +1,24 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
-const path = require("path")
+const path = require('path');
 
-module.exports = merge(common, {
+module.exports = {
     mode: 'development',
-    entry: {
-        main: './src/index.js',
-    },
+    entry: './src/index.js',
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'dev.js'
-    }
-});
+        filename: 'main-development.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './index.html'
+        })
+    ]
+};
